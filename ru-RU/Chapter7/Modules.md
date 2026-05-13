@@ -29,7 +29,7 @@ Domain-Driven Design делает ещё один шаг вперёд в сто�
 
 Следующий пример представляет namespaces в стиле PEAR:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--008.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--008.jpg)
 
 Имя класса для Entity Bill при использовании namespaces в стиле PEAR выглядело бы так: `BuyIt_Billing_Domain_Model_Bill_Bill`. Однако это выглядит довольно уродливо и не соответствует одной из главных мантр Domain-Driven Design: каждое имя класса должно быть названо в терминах Ubiquitous Language. По этой причине мы настоятельно не рекомендуем использовать такой подход.
 
@@ -58,7 +58,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Если вы всё ещё не используете PSR-4 или ещё не мигрировали с PSR-0, мы настоятельно рекомендуем это сделать. Вы сможете избавиться от папки namespace первого уровня, и структура вашего кода будет лучше соответствовать Ubiquitous Language:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--010.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--010.jpg)
 
 Однако для предотвращения конфликтов с third-party libraries всё ещё рекомендуется добавлять namespace первого уровня в ваш файл composer.json:
 
@@ -79,7 +79,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Если вы предпочитаете иметь namespace первого уровня, но при этом использовать PSR-4, потребуется внести некоторые небольшие изменения:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--012.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--012.jpg)
 
 ```json
 ...
@@ -107,7 +107,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Если некоторые из различных Ограниченных Контекстов — это Order Management, Payment Management, Catalog Management и Inventory Management, мы рекомендуем иметь отдельное application для каждого из них:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--014.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--014.jpg)
 
 Каждое application предоставляет любой набор delivery mechanisms, который необходим. С распространением тренда microservices всё больше людей строят Bounded Contexts, которые в итоге предоставляют REST APIs внешнему миру. Однако Bounded Context — это нечто большее, чем просто API. Помните, что API — это лишь один из множества delivery mechanisms; Bounded Context также может предоставлять web interface для взаимодействия.
 
@@ -128,11 +128,11 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Следующая диаграмма должна проиллюстрировать организацию:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--016.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--016.jpg)
 
 Весь код имеет vendor namespace, названный в терминах имени организации (в данном случае — `BuyIt`), и содержит две подпапки: `Domain`, в которой находится весь Domain code, и `Infrastructure`, в которой находится Infrastructure layer, тем самым изолируя всю Domain logic от деталей Infrastructure layer. Следуя такой структуре, мы явно показываем, что собираемся использовать Hexagonal Architecture в качестве базовой архитектуры. Ниже приведён пример альтернативной структуры, которую также можно использовать:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--018.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--018.jpg)
 
 Приведённый выше стиль структуры использует дополнительную подпапку для хранения Services, определённых внутри Domain Model. Хотя такая организация может иметь смысл, мы предпочитаем её не использовать, поскольку такой способ разделения кода обычно больше сфокусирован на архитектурных элементах, чем на значимых концепциях модели. Мы считаем, что такой стиль легко может привести к появлению своего рода Service layer поверх Domain Model, что само по себе не обязательно плохо. Помните, что Domain Services используются для описания операций в Domain, которые не принадлежат ни Entities, ни Value Objects. Поэтому далее мы будем придерживаться предыдущей организации кода.
 
@@ -140,7 +140,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Если бы нам нужно было моделировать контекст `Order Management`, у нас, вероятно, была бы Entity `Order` вместе с её Repository и всей информацией о состоянии. Поэтому нашей первой попыткой было бы разместить все эти элементы непосредственно внутри подпапки `Domain/Model`. На первый взгляд это может показаться самым простым способом:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--020.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--020.jpg)
 
 ## Рекомендации по дизайну
 
@@ -154,7 +154,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Мы поместили Entities `Order` и `OrderLine`, Events `OrderLineWasAdded` и `OrderWasCreated`, а также `OrderRepository` в одну и ту же подпапку `Domain/Model`. Такая структура может быть нормальной, но только потому, что у нас пока ещё простая модель. Но что насчёт Entity `Bill` и её Repository? Или Entity `Waybill` и соответствующего Repository? Давайте добавим все эти элементы и посмотрим, как они впишутся в реальную структуру кода:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--022.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--022.jpg)
 
 Хотя такой стиль организации кода может быть приемлемым, в долгосрочной перспективе он может стать непрактичным и довольно сложным в сопровождении. Каждый раз, когда мы будем выполнять итерации и добавлять новые возможности, модель будет становиться ещё больше, а подпапка будет поглощать всё больше кода. Нам нужно разделить код таким образом, чтобы мы могли получить представление о модели с одного взгляда. Никаких технических соображений — только concerns Domain.
 
@@ -162,7 +162,7 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Для этого мы можем попробовать следующий подход:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--024.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--024.jpg)
 
 Таким образом код становится более организованным с концептуальной точки зрения. И, как указывает Eric Evans в *Blue Book*, modules — это способ коммуникации, поскольку они дают нам представление о том, как Domain Model работает внутренне, а также помогают повысить cohesion и снизить coupling между концепциями. Если посмотреть на предыдущий пример, можно увидеть, что концепции `Order` и `OrderLine` тесно связаны, поэтому они находятся в одном module. С другой стороны, `Order` и `Waybill`, хотя и разделяют один и тот же context, являются разными концепциями, поэтому они находятся в разных modules. Modules — это не просто способ группировать связанные концепции модели, но также способ выразить часть дизайна модели.
 
@@ -176,35 +176,35 @@ Namespaces появились вместе с выходом PHP 5.3 наряд�
 
 Очевидно, что их следует размещать в папке `Infrastructure`, но где именно? Предположим, что мы решили использовать Doctrine ORM для реализации persistence layer. Как нам разместить Doctrine-реализации наших Repositories внутри папки `Infrastructure`? Давайте сделаем это напрямую и посмотрим, как это будет выглядеть:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--026.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--026.jpg)
 
 Мы могли бы оставить всё как есть, однако, как мы уже видели на примере Domain layer, такая структура и организация быстро деградирует и через несколько итераций модели превратится в беспорядок. Каждый раз, когда модель будет расти, ей, вероятно, потребуется ещё больше Infrastructure, и в итоге мы начнём смешивать различные технические concerns: persistence, messaging, logging и многое другое. Наша первая попытка избежать запутанного хаоса Infrastructure-реализаций — определить отдельный module для каждой технической concern внутри Bounded Context:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--028.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--028.jpg)
 
 Это выглядит значительно лучше и гораздо более пригодно для долгосрочной поддержки, чем наша первая попытка. Однако нашим namespaces всё ещё не хватает некоторой связи с Ubiquitous Language. Давайте рассмотрим другой вариант:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--030.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--030.jpg)
 
 Намного лучше. Это соответствует организации нашей Domain Model, но уже внутри Infrastructure layer — к тому же всё выглядит более простым для поиска. Если вы заранее знаете, что у вас всегда будет только один persistence mechanism, вы можете придерживаться именно такой структуры и организации. Она достаточно проста и удобна в сопровождении.
 
 Но что делать, если вам приходится работать с несколькими persistence mechanisms? В наши дни довольно распространено иметь relational persistence mechanism и какую-либо shared in-memory persistence, такую как Redis или Riak, либо иметь локальную in-memory implementation для возможности тестирования кода. Давайте посмотрим, как это вписывается в текущий подход:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--032.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--032.jpg)
 
 Мы рекомендуем именно такой подход. Однако все реализации Repository находятся внутри одного и того же module. Это может показаться немного странным при наличии большого количества различных технологий. Если вам это кажется полезным, вы можете создать дополнительный module, чтобы сгруппировать связанные реализации по используемой базовой технологии:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--034.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--034.jpg)
 
 Этот подход похож на организацию unit testing. Однако существуют классы, конфигурации, шаблоны и прочие элементы, которые невозможно соотнести с Domain Model. Именно поэтому внутри Infrastructure могут появляться дополнительные modules, связанные с конкретными технологиями.
 
 Где следует размещать Doctrine mapping files или Twig templates?
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--036.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--036.jpg)
 
 Как вы можете видеть, чтобы Doctrine работал, нам необходим `EntityManagerFactory` и все mapping files. Мы также можем включать любые другие Infrastructure objects, необходимые в качестве базовых классов. Поскольку они не связаны напрямую с нашей Domain Model, такие ресурсы лучше размещать в отдельном module. То же самое относится и к Delivery Mechanisms (`API`, `Web`, `Console Commands` и так далее). Более того, вы можете использовать разные PHP frameworks или libraries для каждого delivery mechanism:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--038.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--038.jpg)
 
 В предыдущем примере мы использовали Laravel Framework для обслуживания API, Symfony Console Component как точку входа для командной строки, а Silex и Slim — для web delivery mechanism. Что касается пользовательского интерфейса (User Interface), его следует размещать внутри каждого delivery mechanism. Однако если существует возможность переиспользовать UI между различными delivery mechanisms, можно создать модуль с именем `UI` на одном уровне с `Persistence` или `Delivery`. В целом, мы рекомендуем сопротивляться тому, как фреймворки диктуют организацию вашего кода. Фреймворки должны подчиняться вам, а не наоборот.
 
@@ -281,7 +281,7 @@ class ElasticaOrderRepository implements OrderRepository
 
 Он также может использовать output dependency для возврата результата:
 
-![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--040.jpeg)
+![Cool](https://github.com/eatae/dddinphp/blob/main/share/image--040.jpg)
 
 Мы рекомендуем создавать modules вокруг Application Services. Каждый module будет содержать свой request и response. Если вы используете Data Transformer как output dependency, следуйте тому же подходу Infrastructure, как и в случае с UI.
 
