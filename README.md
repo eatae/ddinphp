@@ -18,13 +18,12 @@
 - [Глава 5. Сервисы (Services)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter5/Services.md)
 - [Глава 6. Доменные события](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter6/Domain-Events.md)
 - [Глава 7. Модули (Modules)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter7/Modules.md#%D0%B3%D0%BB%D0%B0%D0%B2%D0%B0-7-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8-modules)
-- [Глава 8. Агрегаты (Aggregates)]
-- [Глава 9. Фабрики (Factories)]
-- [Глава 10: Репозитории (Repositories)]
-- [Глава 11: Приложение (Application)]
-- [Глава 12: Интеграция Ограниченных Контекстов (Bounded Contexts)]
-- [Приложение: Гексагональная Архитектура (Hexagonal Architecture) в PHP]
-- [Код и Примеры]
+- [Глава 8. Агрегаты (Aggregates)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter8/Aggregates.md)
+- [Глава 9. Фабрики (Factories)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter9/Factories.md)
+- [Глава 10: Репозитории (Repositories)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter10/Repositories.md)
+- [Глава 11: Приложение (Application)](https://github.com/eatae/dddinphp/tree/main/ru-RU/Chapter11)
+- [Глава 12: Интеграция Ограниченных Контекстов (Bounded Contexts)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter12/Bounded-Contexts.md)
+- [Приложение: Гексагональная Архитектура (Hexagonal Architecture) в PHP](https://github.com/eatae/dddinphp/blob/main/ru-RU/Supplement/Hexagonal-Architecture.md)
 <br>
 
 ## [Глава 1. Начало работы с DDD](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter1/Getting-Started-with-Domain-Driven-Design.md#%D0%B3%D0%BB%D0%B0%D0%B2%D0%B0-1-%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-ddd)
