@@ -21,7 +21,7 @@
 - [Глава 8. Агрегаты (Aggregates)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter8/Aggregates.md)
 - [Глава 9. Фабрики (Factories)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter9/Factories.md)
 - [Глава 10: Репозитории (Repositories)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter10/Repositories.md)
-- [Глава 11: Приложение (Application)](https://github.com/eatae/dddinphp/tree/main/ru-RU/Chapter11)
+- [Глава 11: Приложение (Application)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter11/Application.md)
 - [Глава 12: Интеграция Ограниченных Контекстов (Bounded Contexts)](https://github.com/eatae/dddinphp/blob/main/ru-RU/Chapter12/Bounded-Contexts.md)
 - [Приложение: Гексагональная Архитектура (Hexagonal Architecture) в PHP](https://github.com/eatae/dddinphp/blob/main/ru-RU/Supplement/Hexagonal-Architecture.md)
 <br>
